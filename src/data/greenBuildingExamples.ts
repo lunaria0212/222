@@ -1,11 +1,11 @@
 import { GreenBuildingExample } from '../types';
 
-const greenCondo3d = '/src/assets/images/green_residential_render_1793252243793.jpg';
-const timberClt3d = '/src/assets/images/low_carbon_timber_3d_1793252269974.jpg';
-const energyCutaway3d = '/src/assets/images/energy_systems_3d_1793252284798.jpg';
-const verticalForest3d = '/src/assets/images/vertical_forest_3d_1793252300653.jpg';
-const magicSchool3d = '/src/assets/images/magic_school_ncku_1793255156410.jpg';
-const ecoSponge3d = '/src/assets/images/eco_sponge_biodiversity_1793255171812.jpg';
+const greenCondo3d = '/images/green_residential_render_1793252243793.jpg';
+const timberClt3d = '/images/low_carbon_timber_3d_1793252269974.jpg';
+const energyCutaway3d = '/images/energy_systems_3d_1793252284798.jpg';
+const verticalForest3d = '/images/vertical_forest_3d_1793252300653.jpg';
+const magicSchool3d = '/images/magic_school_ncku_1793255156410.jpg';
+const ecoSponge3d = '/images/eco_sponge_biodiversity_1793255171812.jpg';
 
 export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
   1: {
@@ -35,7 +35,7 @@ export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
     location: '丹麥 · 哥本哈根 (Nordhavn)',
     ratingBadge: '歐盟 EPBD 零碳先鋒 · DGNB 白金級',
     imageUrl:
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80',
+      '/images/slide_02_nordhavn.jpg',
     is3dRender: false,
     tagline: '全球 2050 淨零路徑先行者：全生命週期 WLCA 碳評估住宅',
     structuralHighlights: [
@@ -99,7 +99,7 @@ export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
     location: '台北市 · 信義區大道路',
     ratingBadge: 'EEWH 鑽石級 ｜ 智慧建築鑽石級 ｜ BERS 1+ 級',
     imageUrl:
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
+      '/images/slide_05_guangci.jpg',
     is3dRender: false,
     tagline: '三軌合一神級實踐：綠建築標章 ＋ 能效 BERS ＋ 低碳標示',
     structuralHighlights: [
@@ -121,7 +121,7 @@ export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
     location: '新北市 · 新店區央北重劃區',
     ratingBadge: '內政部 EEWH-RS 住宿類黃金級標章',
     imageUrl:
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80',
+      '/images/slide_06_housing.jpg',
     is3dRender: false,
     tagline: '專屬好宅量身打造：RS 手冊聚焦每天生活的舒適節能居所',
     structuralHighlights: [
@@ -164,7 +164,7 @@ export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
     location: '高雄市 · 前鎮區亞洲新灣區',
     ratingBadge: 'EEWH 外殼節能 ENVLOAD 頂級評定',
     imageUrl:
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80',
+      '/images/slide_08_threshold.jpg',
     is3dRender: false,
     tagline: '外殼與設備四大節能：外遮陽、自然採光、熱泵與高效率空調',
     structuralHighlights: [
@@ -249,7 +249,7 @@ export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
     location: '台北市 · 大安區都市更新示範住宅',
     ratingBadge: '低蘊含碳標籤 LEBR 黃金級 ｜ 耐震綠建築標章',
     imageUrl:
-      'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1600&q=80',
+      '/images/slide_12_concrete.jpg',
     is3dRender: false,
     tagline: '減碳三箭：高爐水泥替代熟料、輕量化鋼骨與長壽命設計',
     structuralHighlights: [
@@ -292,7 +292,7 @@ export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
     location: '台中市 · 南屯區公益路生態圈',
     ratingBadge: 'EEWH-RS 水資源與基地保水特優等級',
     imageUrl:
-      'https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=1600&q=80',
+      '/images/slide_14_water.jpg',
     is3dRender: false,
     tagline: '水資源全循環：雨水地下回存、全區透水鋪面與海綿城市水景',
     structuralHighlights: [
@@ -314,7 +314,7 @@ export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
     location: '新北市 · 板橋新板特區示範社區',
     ratingBadge: '2026 EEWH-RS 健康居所特優指標',
     imageUrl:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
+      '/images/slide_15_pipe.jpg',
     is3dRender: false,
     tagline: '健康居所重磅變革：同層排水避免漏水擾鄰，當層排氣杜絕氣膠傳播',
     structuralHighlights: [
@@ -336,7 +336,7 @@ export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
     location: '台中市 · 西屯區七期市政特區',
     ratingBadge: '健康綠建材標章認證 ｜ 樓板衝擊音防護特優',
     imageUrl:
-      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80',
+      '/images/slide_16_quiet.jpg',
     is3dRender: false,
     tagline: '室內環境品質升級：降噪 17dB 隔音地坪與低 VOC 健康綠建材',
     structuralHighlights: [
@@ -358,7 +358,7 @@ export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
     location: '桃園市 · 青埔智慧生態綠能園區',
     ratingBadge: '2026 EEWH-RS 鑽石級（總分 88.5 分）',
     imageUrl:
-      'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1600&q=80',
+      '/images/slide_17_award.jpg',
     is3dRender: false,
     tagline: '實戰算分指南：80 分以上鑽石級、合格級 30 分階梯攻頂心法',
     structuralHighlights: [
@@ -401,7 +401,7 @@ export const GREEN_BUILDING_EXAMPLES: Record<number, GreenBuildingExample> = {
     location: '荷蘭 · 恩荷芬 (Eindhoven)',
     ratingBadge: '歐洲永續社會好宅大獎 ｜ 破除昂貴迷思之作',
     imageUrl:
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1600&q=80',
+      '/images/slide_19_trudo.jpg',
     is3dRender: false,
     tagline: '破解四大常見迷思：綠建築不昂貴！租金平民化的綠意奇蹟',
     structuralHighlights: [

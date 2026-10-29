@@ -16,6 +16,7 @@ import {
   Building,
   Image as ImageIcon,
   Sparkles,
+  Share2,
 } from 'lucide-react';
 import { SPEAKERS, SLIDES_DATA } from '../data/presentationData';
 
@@ -29,6 +30,7 @@ interface HeaderNavProps {
   onToggleNotes: () => void;
   onOpenThumbnails: () => void;
   onOpenCalculator: () => void;
+  onOpenExport: () => void;
   isFullscreen: boolean;
   onToggleFullscreen: () => void;
   isPrintMode: boolean;
@@ -51,6 +53,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   onToggleNotes,
   onOpenThumbnails,
   onOpenCalculator,
+  onOpenExport,
   isFullscreen,
   onToggleFullscreen,
   isPrintMode,
@@ -242,6 +245,16 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           <Grid className="w-4 h-4" />
         </button>
 
+        {/* Export Presentation Button (PDF / PPT / Print) */}
+        <button
+          onClick={onOpenExport}
+          className="p-1.5 px-2.5 text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg transition-all flex items-center gap-1.5 shadow-sm hover:shadow-md cursor-pointer border border-emerald-400/40"
+          title="匯出簡報：列印或另存為 20 頁 PDF / PPT 講稿 (快速鍵 P)"
+        >
+          <Share2 className="w-3.5 h-3.5 text-emerald-100" />
+          <span>匯出簡報</span>
+        </button>
+
         {/* Full View / Print Mode Toggle */}
         <button
           onClick={onTogglePrintMode}
@@ -250,7 +263,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
               ? 'bg-teal-600 text-white border-teal-500'
               : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'
           }`}
-          title={isPrintMode ? '返回簡報播放模式' : '檢視所有 20 頁模式（列印/速閱）'}
+          title={isPrintMode ? '返回簡報播放模式' : '檢視所有 20 頁一覽模式'}
         >
           <Printer className="w-4 h-4" />
         </button>

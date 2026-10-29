@@ -86,7 +86,7 @@ export const SlideThumbnailsModal: React.FC<SlideThumbnailsModalProps> = ({
                       onError={(e) => {
                         const target = e.currentTarget as HTMLImageElement;
                         target.onerror = null;
-                        target.src = '/src/assets/images/green_residential_render_1793252243793.jpg';
+                        target.src = '/images/green_residential_render_1793252243793.jpg';
                       }}
                       className="w-full h-full object-cover"
                     />

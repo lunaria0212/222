@@ -27,12 +27,12 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { QUIZ_QUESTIONS } from '../../data/presentationData';
-const greenCondo3d = '/src/assets/images/green_residential_render_1793252243793.jpg';
-const timberClt3d = '/src/assets/images/low_carbon_timber_3d_1793252269974.jpg';
-const energyCutaway3d = '/src/assets/images/energy_systems_3d_1793252284798.jpg';
-const verticalForest3d = '/src/assets/images/vertical_forest_3d_1793252300653.jpg';
-const magicSchool3d = '/src/assets/images/magic_school_ncku_1793255156410.jpg';
-const ecoSponge3d = '/src/assets/images/eco_sponge_biodiversity_1793255171812.jpg';
+const greenCondo3d = '/images/green_residential_render_1793252243793.jpg';
+const timberClt3d = '/images/low_carbon_timber_3d_1793252269974.jpg';
+const energyCutaway3d = '/images/energy_systems_3d_1793252284798.jpg';
+const verticalForest3d = '/images/vertical_forest_3d_1793252300653.jpg';
+const magicSchool3d = '/images/magic_school_ncku_1793255156410.jpg';
+const ecoSponge3d = '/images/eco_sponge_biodiversity_1793255171812.jpg';
 
 // Slide 1: Cover
 export const Slide01: React.FC = () => {

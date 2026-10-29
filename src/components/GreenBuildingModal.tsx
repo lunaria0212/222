@@ -139,7 +139,7 @@ export const GreenBuildingModal: React.FC<GreenBuildingModalProps> = ({
               onError={(e) => {
                 const target = e.currentTarget as HTMLImageElement;
                 target.onerror = null;
-                target.src = '/src/assets/images/green_residential_render_1793252243793.jpg';
+                target.src = '/images/green_residential_render_1793252243793.jpg';
               }}
               className={`w-full h-full object-cover transition-all duration-500 ${
                 isZoomed ? 'scale-125 cursor-zoom-out' : 'group-hover:scale-102 cursor-zoom-in'
@@ -270,7 +270,7 @@ export const GreenBuildingModal: React.FC<GreenBuildingModalProps> = ({
                       onError={(e) => {
                         const target = e.currentTarget as HTMLImageElement;
                         target.onerror = null;
-                        target.src = '/src/assets/images/green_residential_render_1793252243793.jpg';
+                        target.src = '/images/green_residential_render_1793252243793.jpg';
                       }}
                       className="w-full h-full object-cover"
                     />

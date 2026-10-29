@@ -6,6 +6,7 @@ import { SpeakerNotesDrawer } from './components/SpeakerNotesDrawer';
 import { SlideThumbnailsModal } from './components/SlideThumbnailsModal';
 import { CalculatorModal } from './components/CalculatorModal';
 import { GreenBuildingModal } from './components/GreenBuildingModal';
+import { ExportModal } from './components/ExportModal';
 import {
   Slide01,
   Slide02,
@@ -37,6 +38,7 @@ export default function App() {
   const [isThumbnailsOpen, setIsThumbnailsOpen] = useState<boolean>(false);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState<boolean>(false);
   const [isGreenBuildingModalOpen, setIsGreenBuildingModalOpen] = useState<boolean>(false);
+  const [isExportOpen, setIsExportOpen] = useState<boolean>(false);
   const [selectedModalSlideId, setSelectedModalSlideId] = useState<number>(1);
   const [bgStyle, setBgStyle] = useState<'watermark' | 'immersive' | 'none'>('watermark');
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
@@ -142,6 +144,9 @@ export default function App() {
       } else if (e.key === 'b' || e.key === 'B') {
         e.preventDefault();
         handleOpenGreenBuilding(currentSlideIndex + 1);
+      } else if (e.key === 'p' || e.key === 'P') {
+        e.preventDefault();
+        setIsExportOpen(true);
       }
     };
 
@@ -210,6 +215,7 @@ export default function App() {
         onToggleNotes={() => setIsNotesOpen((prev) => !prev)}
         onOpenThumbnails={() => setIsThumbnailsOpen(true)}
         onOpenCalculator={() => setIsCalculatorOpen(true)}
+        onOpenExport={() => setIsExportOpen(true)}
         isFullscreen={isFullscreen}
         onToggleFullscreen={handleToggleFullscreen}
         isPrintMode={isPrintMode}
@@ -226,7 +232,7 @@ export default function App() {
       {/* Main Presentation Stage */}
       {isPrintMode ? (
         // Print / Overview Mode: Render all 20 slides in sequence with corresponding green building background
-        <main className="flex-1 bg-slate-100 p-6 overflow-y-auto space-y-8 max-w-6xl mx-auto w-full">
+        <main className="flex-1 bg-slate-100 p-6 overflow-y-auto space-y-8 max-w-6xl mx-auto w-full print:hidden">
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center">
             <h1 className="text-2xl font-black text-slate-900">
               EEWH-RS 2026 綠建築評估手冊（住宿類）全 20 頁投影片總覽
@@ -271,11 +277,11 @@ export default function App() {
                         onError={(e) => {
                           const target = e.currentTarget as HTMLImageElement;
                           target.onerror = null;
-                          target.src = '/src/assets/images/green_residential_render_1793252243793.jpg';
+                          target.src = '/images/green_residential_render_1793252243793.jpg';
                         }}
-                        className="w-full h-full object-cover opacity-12 mix-blend-multiply filter contrast-110"
+                        className="w-full h-full object-cover opacity-35 mix-blend-multiply filter contrast-125 saturate-120"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/85 to-white/90" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-emerald-50/50 via-white/70 to-emerald-50/40" />
                     </div>
                   )}
                   <div className="relative z-10 h-full">
@@ -301,10 +307,10 @@ export default function App() {
         </main>
       ) : (
         // Standard Interactive Slide Presentation Mode
-        <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
+        <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative print:hidden">
           {/* Slide Stage Container */}
           <main className="flex-1 flex items-center justify-center p-2 sm:p-4 bg-slate-950/95 overflow-y-auto">
-            <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl border border-slate-800 flex flex-col p-4 sm:p-5 relative min-h-[540px] max-h-[calc(100vh-76px)] overflow-y-auto transition-all duration-300">
+            <div className="w-full max-w-5xl bg-white/95 rounded-2xl shadow-2xl border border-slate-800 flex flex-col p-4 sm:p-5 relative min-h-[540px] max-h-[calc(100vh-76px)] overflow-y-auto transition-all duration-300">
               {/* Dynamic Green Building Background / 3D Render Layer */}
               {bgStyle !== 'none' && currentGreenBuilding && (
                 <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl z-0 transition-opacity duration-700">
@@ -314,19 +320,19 @@ export default function App() {
                     onError={(e) => {
                       const target = e.currentTarget as HTMLImageElement;
                       target.onerror = null;
-                      target.src = '/src/assets/images/green_residential_render_1793252243793.jpg';
+                      target.src = '/images/green_residential_render_1793252243793.jpg';
                     }}
                     className={`w-full h-full object-cover transition-all duration-700 ${
                       bgStyle === 'watermark'
-                        ? 'opacity-15 mix-blend-multiply filter contrast-110'
-                        : 'opacity-35 filter brightness-105 contrast-105'
+                        ? 'opacity-38 mix-blend-multiply filter contrast-125 saturate-125'
+                        : 'opacity-65 filter brightness-100 contrast-115 saturate-125'
                     }`}
                   />
                   <div
                     className={`absolute inset-0 transition-colors duration-500 ${
                       bgStyle === 'watermark'
-                        ? 'bg-gradient-to-t from-white via-white/85 to-white/90'
-                        : 'bg-gradient-to-t from-white/95 via-white/80 to-white/85'
+                        ? 'bg-gradient-to-t from-emerald-50/50 via-white/70 to-emerald-50/40'
+                        : 'bg-gradient-to-t from-emerald-950/20 via-white/50 to-white/60'
                     }`}
                   />
                 </div>
@@ -444,6 +450,67 @@ export default function App() {
         currentSlideId={selectedModalSlideId}
         onSelectSlide={handleSelectSlide}
       />
+
+      {/* Export Presentation Modal */}
+      <ExportModal
+        isOpen={isExportOpen}
+        onClose={() => setIsExportOpen(false)}
+        onTriggerPrint={() => window.print()}
+        currentSlideIndex={currentSlideIndex}
+      />
+
+      {/* Dedicated Printable Presentation Container for window.print() */}
+      <div className="hidden print:block printable-presentation-container">
+        {SLIDES_DATA.map((slide, idx) => {
+          const gb = GREEN_BUILDING_EXAMPLES[slide.id];
+          return (
+            <div key={`print-slide-${slide.id}`} className="printable-slide-page">
+              {/* Watermark Background with enhanced architectural depth */}
+              {gb && (
+                <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+                  <img
+                    src={gb.imageUrl}
+                    alt={gb.name}
+                    className="w-full h-full object-cover opacity-35 mix-blend-multiply filter contrast-125 saturate-120"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-50/50 via-white/70 to-emerald-50/40" />
+                </div>
+              )}
+
+              {/* Print Header Bar */}
+              <div className="relative z-10 flex items-center justify-between pb-2 mb-2 border-b-2 border-emerald-700 text-xs">
+                <div className="flex items-center gap-2">
+                  <span className="px-2 py-0.5 bg-emerald-700 text-white font-black rounded text-[10px] tracking-wider">
+                    EEWH-RS 2026
+                  </span>
+                  <span className="font-bold text-slate-900 text-sm">
+                    第 {slide.id} 頁 · {slide.title}
+                  </span>
+                  {gb && (
+                    <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded border border-emerald-300">
+                      🏛️ 典範：{gb.name}（{gb.ratingBadge}）
+                    </span>
+                  )}
+                </div>
+                <div className="text-slate-600 font-mono text-xs font-bold">
+                  主講：{slide.speaker === 'A' ? '張玥' : '郭邦翔'} ｜ {slide.timeRange}
+                </div>
+              </div>
+
+              {/* Slide Content */}
+              <div className="relative z-10 flex-1 flex flex-col justify-between overflow-hidden">
+                {renderSlideContent(idx)}
+              </div>
+
+              {/* Print Footer Bar */}
+              <div className="relative z-10 pt-2 mt-2 border-t border-slate-300 flex items-center justify-between text-[10px] text-slate-500 font-medium">
+                <span>內政部建築研究所 · 2026 最新版綠建築評估手冊（住宿類 EEWH-RS）雙人專題報告</span>
+                <span className="font-bold text-slate-800 font-mono">第 {slide.id} / 20 頁</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

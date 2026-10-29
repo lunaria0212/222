@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix 2026 EEWH-RS 綠建築評估手冊 20分鐘雙人互動簡報",
+  "description": "內政部建築研究所 2026 最新版綠建築評估手冊（住宿類 EEWH-RS）圖表化趣味雙人簡報系統，支援20分鐘雙人計時、演講講稿手卡、互動圖表、得分計算機與Q\u0026A互動。",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

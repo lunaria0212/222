@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'STFangsong', 'FangSong', 'FangSong_GB2312', 'cwTeXFangSong', 'Noto Serif TC', 'Songti TC', 'BiauKai', serif;
+  --font-serif: 'STFangsong', 'FangSong', 'FangSong_GB2312', 'cwTeXFangSong', 'Noto Serif TC', 'Songti TC', 'BiauKai', serif;
+  --font-mono: 'STFangsong', 'FangSong', 'FangSong_GB2312', 'cwTeXFangSong', 'Noto Serif TC', monospace;
+}
+
+:root {
+  --font-fangsong-stack: 'STFangsong', 'FangSong', 'FangSong_GB2312', 'cwTeXFangSong', 'Noto Serif TC', 'Songti TC', 'BiauKai', serif;
+}
+
+/* Force all text in the entire application to use FangSong (仿宋體) */
+html,
+body,
+#root,
+*,
+*::before,
+*::after,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-fangsong-stack) !important;
+}
+
+/* Elegant letter spacing and text rendering for FangSong */
+body {
+  letter-spacing: 0.015em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-fangsong {
+  font-family: var(--font-fangsong-stack) !important;
+}
+
+/* Custom scrollbars that match the clean architectural aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.7);
+}
